@@ -1,0 +1,40 @@
+.svn/
+CodexReviewDiff/
+tmp/
+Use_SI/
+
+# IAR build outputs and generated files
+EWARM/Debug/
+EWARM/Release/
+EWARM/settings/
+EWARM/*.dep
+EWARM/*.out
+EWARM/out.txt
+
+# Common build artifacts
+Debug/
+Release/
+BrowseInfo/
+cache/
+*.o
+*.obj
+*.map
+*.lst
+*.out
+*.hex
+*.bin
+*.elf
+*.d
+*.pbi
+*.pbd
+*.browse
+*.bak
+*.tmp
+*.log
+
+# Editor/system noise
+.vscode/
+*.suo
+*.user
+Thumbs.db
+Desktop.ini

@@ -1267,15 +1267,15 @@ static void ch_bottom_status_msg_process( void )
     }
     else 
     {/*
-        1.电压大于（28V铁锂） （29V 三元） 考虑单体过压的话 还是 不以电压为准
-        2.电流小于1A
+        1.总压大于3.6V * 串数，或最高单体接近过压保护值
+        2.电流小于0.05C
         3.时间长于3s
       */
         int16_t current = get_cur_current();
         
         chargerOverWakeUpSleepQuick = 0;
         if ( ( 1 == get_ch_switch_status() ) && ((g_run_sys_data.total_vol > (360 * BAT_NUM))||( max_vol >= get_cell_vol_high_protect() - 30 ))&& \
-            (current < CH_MIN_CURRENT_VALUE  ) )  // <0.8A充电
+            (current < CH_MIN_CURRENT_VALUE  ) )  // 小电流充电
         {       
                if( full_timer == 0 )
                {
@@ -1488,7 +1488,7 @@ void soc_update_process(void)
 #if defined(TIANFENG) && defined(BAT_8S)    /* 天丰要求SOC置百条件 */
                 uint16_t max_vol = get_max_cell_vol();
 				uint16_t avl_vol = get_average_vol();
-                uint32_t totalVol = get_total_vol();
+                uint32_t totalVol = get_total_vol(); /* get_total_vol单位为mV */
                 if((totalVol > (3600 * BAT_NUM)) || (max_vol >= get_cell_vol_high_protect() - 30))
 #endif
                     if ( 1 == judge_ch_small_current(get_cur_current()))

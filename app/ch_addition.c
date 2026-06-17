@@ -1269,7 +1269,7 @@ static void ch_bottom_status_msg_process( void )
     {/*
         1.总压大于3.6V * 串数，或最高单体接近过压保护值
         2.电流小于0.05C
-        3.时间长于3s
+        3.满充条件连续保持3s
       */
         int16_t current = get_cur_current();
         
@@ -1488,7 +1488,7 @@ void soc_update_process(void)
 #if defined(TIANFENG) && defined(BAT_8S)    /* 天丰要求SOC置百条件 */
                 uint16_t max_vol = get_max_cell_vol();
 				uint16_t avl_vol = get_average_vol();
-                uint32_t totalVol = get_total_vol(); /* get_total_vol单位为mV */
+                uint32_t totalVol = get_total_vol(); /* get_total_vol单位为mV，对应3.6V * BAT_NUM */
                 if((totalVol > (3600 * BAT_NUM)) || (max_vol >= get_cell_vol_high_protect() - 30))
 #endif
                     if ( 1 == judge_ch_small_current(get_cur_current()))

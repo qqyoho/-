@@ -64,7 +64,7 @@ static uint8_t afe_fault_delay;
 
 static void total_vol_status_process(void);
 static void bat_vol_status_process(void);
-uint16_t g_report_Voltage; //上报总电压 0.1V/bit
+uint16_t g_report_Voltage; //CAN上报总电压 0.1V/bit
 /*=============================================================
  * 函数名称：VoltageProtectTimerDelay
  * 函数功能：电压保护处理100ms延时

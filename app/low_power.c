@@ -21,7 +21,7 @@
 
 #define CHARGER_LOWPOWER_3S            3
 #define CHARGER_LOWPOWER_5S            5
-#define POWER_ON_FACTORY_COUNT         (60 * 24 * 10)
+#define POWER_ON_FACTORY_COUNT         (60 * 24 * 10) /* 生产模式保持10天 */
 #define POWER_ON_KEEP_COUNT            POWER_ON_FACTORY_COUNT
 #define FACTORY_CELL_LOW_RECOVER       2450
 #define NORMAL_CELL_LOW_RECOVER        2900
